@@ -1,0 +1,15 @@
+version: "3"
+services:
+    nginx:
+        ports:
+            - 3030:80
+    node-app:
+        build:
+            context: .
+            args:
+                NODE_ENV: development
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        environment:
+            - NODE_ENV=development
