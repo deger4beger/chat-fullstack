@@ -3,7 +3,7 @@ import s from "./Header.module.scss"
 
 const Header = () => {
 	return (
-		<div>
+		<div className={s.wrapper}>
 			Header
 		</div>
 	)
