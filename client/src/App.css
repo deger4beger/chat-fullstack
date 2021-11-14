@@ -66,6 +66,7 @@ body {
 }
 
 .mainBlock {
-  margin-top: 58px;
+  padding-top: 58px;
   max-height: 100vh;
+  min-height: 100vh;
 }

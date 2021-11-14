@@ -1,0 +1,14 @@
+.input {
+	width: 340px;
+	font-size: var(--fsz16);
+	padding: 4px;
+	background-color: var(--firstLight);
+	border-bottom: 2px solid var(--additional);
+	transition: 0.1s;
+	&:first-child {
+		margin-bottom: 30px;
+	}
+	&:focus {
+		border-color: var(--mainLight);
+	}
+}

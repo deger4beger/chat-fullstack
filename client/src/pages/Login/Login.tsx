@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import s from "./Login.module.scss"
 import Input from '../../components/Input/Input';
+import AuthTemplate from '../../components/AuthTemplate/AuthTemplate';
 
 const User: React.FC = () => {
 
@@ -8,22 +8,22 @@ const User: React.FC = () => {
 	const [password, setPassword] = useState("")
 
 	return (
-		<div>
-			<div className={s.wrapper}>
-				<Input
-					name="username"
-					type="input"
-					value={username}
-					onChange={(e) => setUsername(e.currentTarget.value)}
-				/>
-				<Input
-					name="password"
-					type="input"
-					value={password}
-					onChange={(e) => setPassword(e.currentTarget.value)}
-				/>
-			</div>
-		</div>
+		<AuthTemplate title="Login">
+			<Input
+				name="username"
+				placeholder="Username"
+				type="input"
+				value={username}
+				onChange={(e) => setUsername(e.currentTarget.value)}
+			/>
+			<Input
+				name="password"
+				placeholder="Password"
+				type="input"
+				value={password}
+				onChange={(e) => setPassword(e.currentTarget.value)}
+			/>
+		</AuthTemplate>
 	)
 }
 
