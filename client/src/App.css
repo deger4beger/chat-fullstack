@@ -64,3 +64,8 @@ body {
 * {
     font-family: var(--mainFont), sans-serif;
 }
+
+.mainBlock {
+  margin-top: 58px;
+  max-height: 100vh;
+}
