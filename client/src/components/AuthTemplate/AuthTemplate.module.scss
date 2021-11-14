@@ -7,10 +7,12 @@
 	.title {
 		margin-bottom: 40px;
 		font-size: var(--fsz32);
+		border-bottom: 2px solid var(--firstDark);
+		padding: 1px 16px;
 	}
 	.inputs {
 		display: flex;
 		flex-direction: column;
-		padding-bottom: 110px;
+		margin-bottom: 40px;
 	}
 }

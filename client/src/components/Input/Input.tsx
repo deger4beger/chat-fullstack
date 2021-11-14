@@ -10,9 +10,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = (props) => {
-	return (
-		<input {...props} className={s.input} />
-	)
+	return <input {...props} className={s.input} />
 }
 
 export default Input

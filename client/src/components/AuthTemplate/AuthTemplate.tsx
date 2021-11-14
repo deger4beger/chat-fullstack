@@ -4,9 +4,10 @@ import s from "./AuthTemplate.module.scss"
 interface IAuthTemplateProps {
 	title: string
 	children: React.ReactNode[] | React.ReactNode
+	Button: React.ReactNode
 }
 
-const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, children}) => {
+const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, children, Button}) => {
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>
@@ -15,6 +16,7 @@ const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, children}) => {
 			<div className={s.inputs}>
 				{children}
 			</div>
+			{Button}
 		</div>
 	)
 }
