@@ -5,8 +5,9 @@
 	background-color: var(--firstLight);
 	border-bottom: 2px solid var(--additional);
 	transition: 0.1s;
-	&:first-child {
-		margin-bottom: 30px;
+	margin-bottom: 30px;
+	&:last-child {
+		margin-bottom: 0px;
 	}
 	&:focus {
 		border-color: var(--mainLight);

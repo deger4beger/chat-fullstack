@@ -3,19 +3,20 @@ import Input from '../../components/Input/Input';
 import AuthTemplate from '../../components/AuthTemplate/AuthTemplate';
 import Button from '../../components/Button/Button';
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
 
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
+	const [confirmPassword, setConfirmPassword] = useState("")
 
 	const login = () => {
 		console.log(username, password)
 	}
 
 	return (
-		<AuthTemplate title="Login" Button={
+		<AuthTemplate title="Sign up" Button={
 			<Button
-				content="Login"
+				content="Sign up"
 				onClick={login}
 				disabled={false}
 				loading={false}
@@ -35,8 +36,15 @@ const Login: React.FC = () => {
 				value={password}
 				onChange={(e) => setPassword(e.currentTarget.value)}
 			/>
+			<Input
+				name="confirmPassword"
+				placeholder="Confirm password"
+				type="password"
+				value={confirmPassword}
+				onChange={(e) => setConfirmPassword(e.currentTarget.value)}
+			/>
 		</AuthTemplate>
 	)
 }
 
-export default Login
+export default Signup

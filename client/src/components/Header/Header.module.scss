@@ -9,6 +9,9 @@
 	top: 0;
 	left: 0;
 	.container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
 		.logoBlock {
 			user-select: none;
 			width: 280px;
@@ -26,6 +29,9 @@
 					background-color: var(--mainDark);
 				}
 			}
+		}
+		.menuBlock {
+			margin-right: 100px;
 		}
 	}
 }
