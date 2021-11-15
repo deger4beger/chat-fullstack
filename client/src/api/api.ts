@@ -11,7 +11,7 @@ export const userApi = {
 			.then(res => res.data)
 	},
 	signup(payload: IUserSend): Promise<IUserRecieve> {
-		return mainInstance.post<IUserRecieve>("user/signup", payload)
+		return mainInstance.post<IUserRecieve>("user/register", payload)
 			.then(res => res.data)
 	}
 }

@@ -2,11 +2,16 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { IUserSend } from '../../types/User';
 import { userApi } from '../../api/api';
 
-export const loginThunk = createAsyncThunk(
+interface ILoginThunkPayload extends IUserSend {
+    type: "login" | "signup"
+}
+
+export const authThunk = createAsyncThunk(
     'user/login',
-    async (payload: IUserSend, thunkAPI) => {
+    async (payload: ILoginThunkPayload, thunkAPI) => {
         try {
-            const userData = await userApi.login(payload)
+            const { type, ...rest } = payload
+            const userData = await userApi[type](rest)
             localStorage.setItem("user", JSON.stringify(userData))
             return userData
         } catch (e) {
@@ -15,15 +20,16 @@ export const loginThunk = createAsyncThunk(
     }
 )
 
-export const signupThunk = createAsyncThunk(
-    'user/signup',
-    async (payload: IUserSend, thunkAPI) => {
-        try {
-            const userData = await userApi.signup(payload)
-            localStorage.setItem("user", JSON.stringify(userData))
-            return userData
-        } catch (e) {
-            return thunkAPI.rejectWithValue("Registration failed")
-        }
-    }
-)
+// may be different logic in the future
+// export const signupThunk = createAsyncThunk(
+//     'user/signup',
+//     async (payload: IUserSend, thunkAPI) => {
+//         try {
+//             const userData = await userApi.signup(payload)
+//             localStorage.setItem("user", JSON.stringify(userData))
+//             return userData
+//         } catch (e) {
+//             return thunkAPI.rejectWithValue("Registration failed")
+//         }
+//     }
+// )

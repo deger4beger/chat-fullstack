@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import decode, {JwtPayload} from "jwt-decode"
 import { IUserRecieve } from '../../types/User';
-import { loginThunk, signupThunk } from './userThunks';
+import { authThunk } from './userThunks';
 
 interface userState {
 	userData: {
@@ -44,19 +44,19 @@ export const userSlice = createSlice({
     	}
     },
     extraReducers: {
-    	[loginThunk.pending.type || signupThunk.pending.type]: (state) => {
+    	[authThunk.pending.type]: (state) => {
             state.isLoading = true;
         },
-        [loginThunk.fulfilled.type || signupThunk.fulfilled.type]: (state, action: PayloadAction<IUserRecieve>) => {
+        [authThunk.fulfilled.type]: (state, action: PayloadAction<IUserRecieve>) => {
             state.isLoading = false;
             state.error = ""
             state.isAuth = true
             state.userData = action.payload
         },
-        [loginThunk.rejected.type || signupThunk.rejected.type]: (state,  action: PayloadAction<string>) => {
+        [authThunk.rejected.type]: (state,  action: PayloadAction<string>) => {
             state.isLoading = false;
             state.error = action.payload
-        }
+        },
     }
 })
 
