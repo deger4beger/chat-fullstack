@@ -2,14 +2,18 @@ import React, {useState} from 'react'
 import Input from '../../components/Input/Input';
 import AuthTemplate from '../../components/AuthTemplate/AuthTemplate';
 import Button from '../../components/Button/Button';
+import { loginThunk } from '../../redux/slices/userThunks';
+import { useAppDispatch } from '../../hooks/redux';
 
 const Login: React.FC = () => {
 
-	const [username, setUsername] = useState("")
-	const [password, setPassword] = useState("")
+	const [username, setUsername] = useState<string>("")
+	const [password, setPassword] = useState<string>("")
+
+	const dispatch = useAppDispatch()
 
 	const login = () => {
-		console.log(username, password)
+		dispatch(loginThunk({username, password}))
 	}
 
 	return (
