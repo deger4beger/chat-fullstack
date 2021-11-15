@@ -3,7 +3,7 @@ import Input from '../../components/Input/Input';
 import AuthTemplate from '../../components/AuthTemplate/AuthTemplate';
 import Button from '../../components/Button/Button';
 import { loginThunk } from '../../redux/slices/userThunks';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 const Login: React.FC = () => {
 
@@ -11,6 +11,7 @@ const Login: React.FC = () => {
 	const [password, setPassword] = useState<string>("")
 
 	const dispatch = useAppDispatch()
+	const loading = useAppSelector(state => state.userReducer.isLoading)
 
 	const login = () => {
 		dispatch(loginThunk({username, password}))
@@ -22,7 +23,7 @@ const Login: React.FC = () => {
 				content="Login"
 				onClick={login}
 				disabled={false}
-				loading={false}
+				loading={loading}
 			/>
 		}>
 			<Input

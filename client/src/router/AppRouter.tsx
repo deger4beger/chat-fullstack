@@ -1,9 +1,10 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {privateRoutes, publicRoutes, RouteNames} from "../router/router";
+import { useAppSelector } from '../hooks/redux';
 
 const AppRouter = () => {
-    const isAuth = false
+    const isAuth = useAppSelector(state => state.userReducer.isAuth)
 
     return (
         isAuth ? (

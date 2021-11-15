@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { userApi } from '../../api/api';
-import { IUserRecieve, IUserSend } from '../../types/User';
+import decode, {JwtPayload} from "jwt-decode"
+import { IUserRecieve } from '../../types/User';
 import { loginThunk, signupThunk } from './userThunks';
 
 interface userState {
@@ -30,7 +30,19 @@ const initialState: userState = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+    	initializeUser(state) {
+    		const user = localStorage.getItem("user")
+    		if (user) {
+    			const userData: IUserRecieve = JSON.parse(user)
+    			const decodedToken = decode<JwtPayload>(userData.token)
+    			if (decodedToken.exp && (decodedToken.exp * 1000 > new Date().getTime())) {
+    				state.isAuth = true
+    				state.userData = userData
+    			}
+    		}
+    	}
+    },
     extraReducers: {
     	[loginThunk.pending.type || signupThunk.pending.type]: (state) => {
             state.isLoading = true;
@@ -47,5 +59,7 @@ export const userSlice = createSlice({
         }
     }
 })
+
+export const { initializeUser } = userSlice.actions
 
 export default userSlice.reducer
