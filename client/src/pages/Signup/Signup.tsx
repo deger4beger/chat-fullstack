@@ -13,17 +13,20 @@ const Signup: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	const loading = useAppSelector(state => state.userReducer.isLoading)
+	const error = useAppSelector(state => state.userReducer.error)
+
+	const disabled = !username || !password || !confirmPassword || confirmPassword !== password
 
 	const signup = () => {
 		dispatch(authThunk({username, password, type: "signup"}))
 	}
 
 	return (
-		<AuthTemplate title="Sign up" Button={
+		<AuthTemplate title="Sign up" error={error} Button={
 			<Button
 				content="Sign up"
 				onClick={signup}
-				disabled={false}
+				disabled={disabled}
 				loading={loading}
 			/>
 		}>

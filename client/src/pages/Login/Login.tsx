@@ -12,6 +12,7 @@ const Login: React.FC = () => {
 
 	const dispatch = useAppDispatch()
 	const loading = useAppSelector(state => state.userReducer.isLoading)
+	const error = useAppSelector(state => state.userReducer.error)
 
 	const disabled = !username || !password
 
@@ -20,7 +21,7 @@ const Login: React.FC = () => {
 	}
 
 	return (
-		<AuthTemplate title="Login" Button={
+		<AuthTemplate title="Login" error={error} Button={
 			<Button
 				content="Login"
 				onClick={login}

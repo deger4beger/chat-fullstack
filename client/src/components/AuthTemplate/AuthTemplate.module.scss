@@ -1,4 +1,7 @@
 .wrapper {
+	& * {
+		transition: 0.2s;
+	}
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -14,5 +17,16 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 40px;
+		position: relative;
+		.error {
+			position: absolute;
+			bottom: -20px;
+			text-align: center;
+			width: 100%;
+			left: 0;
+			color: var(--mainDark);
+			border-bottom: 1px solid var(--mainDark);
+			padding: 5px;
+		}
 	}
 }
