@@ -46,6 +46,15 @@ export const userSlice = createSlice({
     	},
         resetError(state) {
             state.error = null
+        },
+        logout(state) {
+            state.userData = {
+                id: null,
+                created: null,
+                username: null,
+                token: null
+            }
+            state.isAuth = false
         }
     },
     extraReducers: {
@@ -65,6 +74,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const { initializeUser, resetError } = userSlice.actions
+export const { initializeUser, resetError, logout } = userSlice.actions
 
 export default userSlice.reducer
