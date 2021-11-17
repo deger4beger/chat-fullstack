@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Input from '../../components/Input/Input';
 import AuthTemplate from '../../components/AuthTemplate/AuthTemplate';
 import Button from '../../components/Button/Button';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { authThunk } from '../../redux/slices/userThunks';
+import { resetError } from "../../redux/slices/userSlice"
 
 const Signup: React.FC = () => {
 
@@ -20,6 +21,13 @@ const Signup: React.FC = () => {
 	const signup = () => {
 		dispatch(authThunk({username, password, type: "signup"}))
 	}
+
+	useEffect(() => {
+		return () => {
+			dispatch(resetError())
+		}
+	}, [])
+
 
 	return (
 		<AuthTemplate title="Sign up" error={error} Button={

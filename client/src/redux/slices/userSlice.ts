@@ -3,25 +3,27 @@ import decode, {JwtPayload} from "jwt-decode"
 import { IUserRecieve } from '../../types/User';
 import { authThunk } from './userThunks';
 
-interface userState {
-	userData: {
-		id: string | null
-		created: string | null
-		username: string | null
-		token: string | null
-	}
+interface IInitalUserData {
+    id: null | string
+    created: null | string
+    username: null | string
+    token: null | string
+}
+
+interface IuserState {
+	userData: IInitalUserData
 	isAuth: boolean
 	isLoading: boolean
 	error: string | null
 }
 
-const initialState: userState = {
+const initialState: IuserState = {
 	userData: {
-		id: null,
-		created: null,
-		username: null,
-		token: null
-	},
+        id: null,
+        created: null,
+        username: null,
+        token: null
+    },
 	isAuth: false,
 	isLoading: false,
 	error: null
@@ -41,7 +43,10 @@ export const userSlice = createSlice({
     				state.userData = userData
     			}
     		}
-    	}
+    	},
+        resetError(state) {
+            state.error = null
+        }
     },
     extraReducers: {
     	[authThunk.pending.type]: (state) => {
@@ -60,6 +65,6 @@ export const userSlice = createSlice({
     }
 })
 
-export const { initializeUser } = userSlice.actions
+export const { initializeUser, resetError } = userSlice.actions
 
 export default userSlice.reducer
