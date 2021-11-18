@@ -10,14 +10,14 @@ interface IInitalUserData {
     token: null | string
 }
 
-interface IuserState {
+interface IUserState {
 	userData: IInitalUserData
 	isAuth: boolean
 	isLoading: boolean
 	error: string | null
 }
 
-const initialState: IuserState = {
+const initialState: IUserState = {
 	userData: {
         id: null,
         created: null,

@@ -9,12 +9,10 @@ const Header = () => {
 	return (
 		<div className={s.wrapper}>
 			<div className={s.container}>
-				<div className={s.logoBlock}>
-					<div className={s.logo}>
-						chat
-					</div>
+				<div className={s.logo}>
+					chat
 				</div>
-				<div className={s.menuBlock}>
+				<div className={s.menu}>
 					{ isAuth ? <PrivateMenu /> : <PublicMenu /> }
 				</div>
 			</div>
