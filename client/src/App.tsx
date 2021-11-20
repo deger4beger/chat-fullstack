@@ -15,9 +15,9 @@ function App() {
 
     return (
         <>
-            <Header data-testid="header" />
-            <div className="mainBlock">
-            	<AppRouter data-testid="router" />
+            <Header />
+            <div className="mainBlock" data-testid="main">
+            	<AppRouter />
             </div>
         </>
     )

@@ -6,9 +6,7 @@ test("Render App component", () => {
 
 	const { getByTestId } = render(<AppProvider component={<App />} />)
 
-	const router = getByTestId("router")
-	const header = getByTestId("header")
+	const router = getByTestId("main")
 
-	expect(header).toBeTruthy()
 	expect(router).toBeTruthy()
 })
