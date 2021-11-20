@@ -24,8 +24,9 @@
 				opacity: 0;
 			}
 			.preloader {
+				font-size: 22px;
 				display: block;
-				animation: rotate 1s infinite;
+				animation: rotate 0.7s infinite linear;
 			}
 		}
 	}
@@ -42,10 +43,10 @@
 }
 
 @keyframes rotate {
-	33% {
+	25% {
 		transform: translateX(-6px);
 	}
-	66% {
+	75% {
 		transform: translateX(6px);
 	}
 }
