@@ -30,7 +30,7 @@ const Signup: React.FC = () => {
 
 
 	return (
-		<AuthTemplate title="Sign up" error={error} Button={
+		<AuthTemplate title="Sign up" error={error} button={
 			<Button
 				content="Sign up"
 				onClick={signup}

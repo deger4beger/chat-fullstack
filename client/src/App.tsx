@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import AppRouter from './router/AppRouter';
 import { useAppDispatch } from './hooks/redux';
 import { initializeUser } from './redux/slices/userSlice';
+import Header from './components/Header/Header';
+import AppRouter from './router/AppRouter';
+import './App.css';
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
 
     return (
         <>
-            <Header />
+            <Header data-testid="header" />
             <div className="mainBlock">
-            	<AppRouter />
+            	<AppRouter data-testid="router" />
             </div>
         </>
     )

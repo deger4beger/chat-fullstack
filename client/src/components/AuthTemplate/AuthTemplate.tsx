@@ -5,10 +5,10 @@ interface IAuthTemplateProps {
 	title: string
 	error: string | null
 	children: React.ReactNode[] | React.ReactNode
-	Button: React.ReactNode
+	button: React.ReactNode
 }
 
-const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, error, children, Button}) => {
+const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, error, children, button}) => {
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>
@@ -22,7 +22,7 @@ const AuthTemplate: React.FC<IAuthTemplateProps> = ({title, error, children, But
 					</div>
 				)}
 			</div>
-			{Button}
+			{button}
 		</div>
 	)
 }

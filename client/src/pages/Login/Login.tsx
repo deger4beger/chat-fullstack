@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 	}, [])
 
 	return (
-		<AuthTemplate title="Login" error={error} Button={
+		<AuthTemplate title="Login" error={error} button={
 			<Button
 				content="Login"
 				onClick={login}
